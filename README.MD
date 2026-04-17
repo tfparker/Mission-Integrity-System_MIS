@@ -164,3 +164,11 @@ SENSOR INTEGRITY: 42
 COMMUNICATION INTEGRITY: 81
 
 CAUSE: Sensor clarity drop combined with wind-induced instability.
+
+## Demonstration Reports
+
+Sample PDF reports generated from the MIS V1 Streamlit application are available in the [`/reports`](reports/) folder.
+
+These reports demonstrate how MIS V1 packages simulated scenario outputs into reviewable artifacts, including integrity scores, raw signal charts, event logs, causal explanations, and data excerpts.
+
+Reports are generated from simulated data for demonstration and portfolio purposes only.
