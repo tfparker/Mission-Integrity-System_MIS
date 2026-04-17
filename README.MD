@@ -1,309 +1,166 @@
-Mission Integrity System (MIS) — V1
+Mission Integrity System (MIS) — V1.1
 
-Deterministic classification of operational trustworthiness under degraded conditions
+**Deterministic classification of operational trustworthiness under degraded conditions**
 
-⸻
+Mission Integrity System (MIS) — V1 is a governance-first, deterministic classification prototype that evaluates simulated telemetry-like signals and classifies operational trustworthiness into bounded states.
 
-Overview
+MIS V1 does not control a UAV, perform navigation, optimize behavior, predict outcomes, or automate operational decisions.
 
-Mission Integrity System (MIS) — V1 is a governance-first, deterministic classification engine designed to evaluate the trustworthiness of mission state based on degraded telemetry-like signals.
+Instead, it answers a narrower question:
 
-The system does not control a UAV, does not perform navigation, and does not optimize behavior.
+> Given current degraded signal conditions, how much should an operator trust what the system is observing?
 
-Instead, it answers a more fundamental question:
+---
 
-“Given current conditions, how much should an operator trust what the system is observing?”
+## Current Status
 
-MIS V1 is a simulation-based prototype that demonstrates how bounded state models and explicit degradation handling can improve interpretability and decision confidence in complex operational environments.
+MIS V1 is complete as a constrained portfolio prototype.
 
-⸻
+Current capabilities include:
 
-Problem Context
+- synthetic scenario generation
+- deterministic integrity scoring
+- bounded state classification
+- causal explanation strings
+- event-based transition logging
+- Streamlit interface
+- CLI execution
+- downloadable scenario-specific PDF reports
 
-Most operational systems (including UAV platforms):
-	•	expose raw telemetry but not interpretable state
-	•	assume signal reliability instead of measuring it
-	•	hide or smooth over degradation
-	•	overwhelm operators with data rather than clarifying trust
+No V2 work is currently active. The project is intentionally held at V1 to preserve scope clarity.
 
-This creates a critical gap:
+---
 
-Systems continue to operate even when their outputs are no longer trustworthy — without clearly signaling that loss of trust.
+## What MIS V1 Does
 
-MIS addresses this gap directly.
+MIS V1 ingests simulated mission signal data and produces:
 
-⸻
+- one bounded operational state per time step
+- domain-specific integrity scores
+- concise causal explanations
+- event logs for meaningful transitions
+- downloadable PDF reports for scenario review
 
-Core Concept
+The system separates two concerns that are often conflated:
 
-MIS separates two concerns that are often conflated:
-	1.	What the system observes
-	2.	How trustworthy those observations are
+1. what the system observes
+2. how trustworthy those observations are
 
 MIS V1 focuses exclusively on the second.
 
-It ingests time-series signals and produces:
-	•	a bounded operational state
-	•	domain-specific integrity scores
-	•	a concise causal explanation
-	•	event-driven transitions, not continuous noise
+---
 
-⸻
-
-Key Features
-
-1. Deterministic State Classification
+## Bounded State Model
 
 Each time step is classified into one of four states:
-	•	Stable — All signals within acceptable bounds
-	•	Drift Emerging — Early degradation detected
-	•	Degraded — Sustained multi-domain degradation
-	•	Unreliable — Output no longer trustworthy
 
-All transitions are:
-	•	deterministic
-	•	explainable
-	•	based on explicit thresholds
+| State | Meaning |
+|---|---|
+| Stable | All signals remain within acceptable bounds |
+| Drift Emerging | Early degradation is detected |
+| Degraded | Sustained or multi-domain degradation is present |
+| Unreliable | Output should no longer be treated as trustworthy |
 
-⸻
+All classifications are:
 
-2. Integrity-First Signal Interpretation
+- deterministic
+- explainable
+- based on explicit threshold logic
+- limited to finite bounded states
 
-MIS computes bounded integrity scores (0–100):
-	•	Navigation Integrity
-	•	Sensor Integrity
-	•	Communication Integrity
+No statistical model, machine learning layer, or predictive engine is used.
 
-Scores are derived using transparent, rule-based logic—not statistical models.
+---
 
-⸻
+## Integrity Scores
 
-3. Explicit Degradation Modeling
+MIS V1 computes three bounded integrity scores from 0 to 100:
 
-Instead of masking instability, MIS:
-	•	surfaces signal degradation directly
-	•	tracks multi-domain interactions
-	•	escalates only when thresholds are crossed
+| Integrity Domain | Primary Signal Inputs |
+|---|---|
+| Navigation Integrity | GPS quality, IMU stability, wind load |
+| Sensor Integrity | Sensor clarity, wind load, IMU stability |
+| Communication Integrity | Comms latency, packet loss |
 
-⸻
+Scores are generated through transparent, rule-based logic.
 
-4. Quiet-by-Default Output
+The purpose is not to claim real-world sensor accuracy. The purpose is to demonstrate how signal degradation can be represented clearly before downstream decisions are made.
 
-The system avoids continuous noise.
+---
 
-It emits information only when meaningful changes occur:
-	•	state transitions
-	•	threshold breaches
-	•	integrity degradation events
+## Included Scenarios
 
-⸻
+MIS V1 includes five simulated scenarios:
 
-5. Causal Explanations
+1. **nominal_mission**  
+   Mostly stable signals throughout the scenario.
 
-Every classification includes a concise explanation, for example:
+2. **gradual_gps_degradation**  
+   GPS quality degrades gradually over time.
 
-Degraded: sensor clarity drop combined with elevated wind load
+3. **sensor_disruption**  
+   Sensor clarity drops suddenly with related instability.
 
-No black-box outputs. No hidden reasoning.
+4. **comms_instability**  
+   Packet loss and latency worsen intermittently.
 
-⸻
+5. **compound_degradation**  
+   Multiple signal domains degrade together, potentially causing transition toward Unreliable.
 
-6. Scenario-Based Simulation
+All scenarios use simulated data only.
 
-MIS V1 operates entirely on synthetic mission data.
+---
 
-Included scenarios:
-	•	nominal mission stability
-	•	gradual GPS degradation
-	•	sudden sensor disruption
-	•	intermittent communication instability
-	•	compound multi-domain failure
+## PDF Scenario Reports
 
-⸻
+MIS V1 includes downloadable scenario-specific PDF reports.
 
-What This Project Is
-	•	A mission integrity classification engine
-	•	A simulation-based prototype
-	•	A deterministic alternative to probabilistic monitoring
-	•	A governance-first system design artifact
-	•	A demonstration of trust-aware operational modeling
+Each report includes:
 
-⸻
+- scenario name
+- generated timestamp
+- latest state
+- Navigation Integrity score
+- Sensor Integrity score
+- Communication Integrity score
+- latest causal explanation
+- integrity score chart
+- raw signal chart
+- event log
+- data excerpt
+- limitations and non-goals
+- copyright / ownership footer
 
-What This Project Is Not
-	•	Not a UAV or drone system
-	•	Not a flight controller or autopilot
-	•	Not a navigation or routing engine
-	•	Not a targeting or tracking system
-	•	Not an AI/ML model
-	•	Not a predictive analytics platform
-	•	Not a real-time production deployment
+The report is designed for demonstration, portfolio review, and discussion purposes.
 
-⸻
+It does not certify operational readiness, safety performance, regulatory compliance, or real-world mission suitability.
 
-Design Principles
+---
 
-MIS V1 is built on the following constraints:
-	•	Deterministic over probabilistic
-	•	Bounded state models over continuous scoring
-	•	Explicit uncertainty over hidden assumptions
-	•	Interpretability over complexity
-	•	Event-driven output over constant telemetry
-	•	No prediction, no optimization, no automation bias
+## Accessibility Considerations
 
-⸻
+Charts are designed to avoid relying on color alone.
 
-System Architecture
+The reporting layer uses accessibility-aware presentation principles, including:
 
-Synthetic Data Generator
-        ↓
-Signal Normalization
-        ↓
-Integrity Scoring Engine
-        ↓
-State Classification Engine
-        ↓
-Causal Explanation Layer
-        ↓
-Event Detection
-        ↓
-Operator Output (CLI / Streamlit)
+- distinct line styles where practical
+- markers where practical
+- clear legends
+- axis labels
+- chart titles
+- readable font sizing
+- numeric values in summaries and tables
 
+This supports the broader design principle that interpretability should not depend on visual assumptions alone.
 
-⸻
+---
 
-File Structure
+## Example Output
 
-/main.py                 # CLI execution
-/app.py                  # Streamlit interface
-/config.py               # thresholds and constants
+```text
+STATE: Degraded
+NAVIGATION INTEGRITY: 68
+SENSOR INTEGRITY: 42
+COMMUNICATION INTEGRITY: 81
 
-/data/
-  scenario_generator.py  # synthetic mission scenarios
-
-/core/
-  models.py              # dataclasses
-  scoring.py             # integrity score logic
-  classifier.py          # state classification
-  events.py              # event detection
-  pipeline.py            # orchestration
-
-/ui/
-  formatters.py          # output formatting
-
-/README.md
-/requirements.txt
-
-
-⸻
-
-How to Run
-
-1. Install dependencies
-
-pip install -r requirements.txt
-
-
-⸻
-
-2. Run CLI mode
-
-python main.py
-
-This will:
-	•	generate a default scenario
-	•	print recent classified output
-	•	display detected events
-
-⸻
-
-3. Run Streamlit UI
-
-streamlit run app.py
-
-This will open a local interface where you can:
-	•	select scenarios
-	•	view state classifications
-	•	inspect integrity scores
-	•	review event logs
-
-⸻
-
-Example Output
-
-STATE: Degraded  
-NAV: 68  
-SENSOR: 42  
-COMMS: 81  
-
-CAUSE: Sensor clarity drop combined with wind-induced instability
-
-
-⸻
-
-Why This Matters
-
-Most systems fail not because they stop working, but because:
-
-They continue operating while silently degrading.
-
-MIS introduces a different approach:
-	•	Trust becomes a first-class output
-	•	Degradation is measured, not ignored
-	•	Operators are informed when confidence should change
-
-This pattern is applicable beyond UAVs, including:
-	•	finance and risk systems
-	•	enterprise data pipelines
-	•	industrial monitoring
-	•	safety-critical environments
-
-⸻
-
-Limitations (V1)
-	•	Synthetic data only
-	•	Simplified signal modeling
-	•	Static threshold logic
-	•	No real-world telemetry integration
-	•	No hardware-in-the-loop testing
-
-⸻
-
-Potential V2 Directions
-	•	replay of real-world datasets
-	•	richer signal interactions
-	•	configurable threshold profiles
-	•	improved operator interface
-	•	integration with simulation environments
-
-⸻
-
-Author Positioning
-
-This project reflects a broader focus on:
-
-Deterministic classification systems for interpreting operational drift and data integrity under uncertainty
-
-It extends principles commonly applied in:
-	•	financial governance
-	•	enterprise data systems
-	•	transformation and control frameworks
-
-into a simulated mission environment.
-
-⸻
-
-License
-
-Add your preferred license here.
-
-⸻
-
-Final Note
-
-MIS V1 is intentionally constrained.
-
-Its value is not in feature breadth, but in demonstrating that:
-
-Clarity of state and integrity is more valuable than increasing system complexity.
-
+CAUSE: Sensor clarity drop combined with wind-induced instability.
