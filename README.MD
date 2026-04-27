@@ -159,7 +159,6 @@ This supports the broader design principle that interpretability should not depe
 
 ## Example Output
 
-```text
 STATE: Degraded
 NAVIGATION INTEGRITY: 68
 SENSOR INTEGRITY: 42
