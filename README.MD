@@ -1,5 +1,5 @@
 Mission Integrity System (MIS) — V1.1
-© 2026 Tripp Parkerr. All rights reserved
+© 2026 Tripp Parker. All rights reserved
 
 
 **Deterministic classification of operational trustworthiness under degraded conditions**
