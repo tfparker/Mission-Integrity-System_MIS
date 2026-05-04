@@ -1,24 +1,24 @@
-Mission Integrity System (MIS) — V1.1
-© 2026 Tripp Parker. All rights reserved
+# Mission Integrity System (MIS)
 
+© 2026 Tripp Parker. All rights reserved.
 
 **Deterministic classification of operational trustworthiness under degraded conditions**
 
-Mission Integrity System (MIS) — V1 is a governance-first, deterministic classification prototype that evaluates simulated telemetry-like signals and classifies operational trustworthiness into bounded states.
+Mission Integrity System (MIS) is a governance-first, deterministic classification prototype that evaluates simulated telemetry-like signals and classifies operational trustworthiness into bounded states.
 
-MIS V1 does not control a UAV, perform navigation, optimize behavior, predict outcomes, or automate operational decisions.
+MIS does **not** control a UAV, perform navigation, optimize behavior, predict outcomes, or automate operational decisions.
 
 Instead, it answers a narrower question:
 
-> Given current degraded signal conditions, how much should an operator trust what the system is observing?
+> Given degraded signal conditions, how much trust should be placed in what the system is observing?
 
 ---
 
 ## Current Status
 
-MIS V1 is complete as a constrained portfolio prototype.
+MIS has progressed from a constrained V1 prototype into a more reviewable, validated, evidence-supported portfolio artifact.
 
-Current capabilities include:
+The current project includes:
 
 - synthetic scenario generation
 - deterministic integrity scoring
@@ -27,97 +27,43 @@ Current capabilities include:
 - event-based transition logging
 - Streamlit interface
 - CLI execution
-- downloadable scenario-specific PDF reports
+- scenario-specific PDF reports
+- verification and regression tests
+- evidence package generation
+- checksum-supported artifacts
+- manifest, validation report, and operator receipt outputs
 
-No V2 work is currently active. The project is intentionally held at V1 to preserve scope clarity.
+The project remains intentionally scoped. No V2 work is currently active.
 
----
-
-## What MIS V1 Does
-
-MIS V1 ingests simulated mission signal data and produces:
-
-- one bounded operational state per time step
-- domain-specific integrity scores
-- concise causal explanations
-- event logs for meaningful transitions
-- downloadable PDF reports for scenario review
-
-The system separates two concerns that are often conflated:
-
-1. what the system observes
-2. how trustworthy those observations are
-
-MIS V1 focuses exclusively on the second.
+MIS is still simulation-only and does not perform real-world mission execution, flight control, prediction, or operational recommendation.
 
 ---
 
-## Bounded State Model
+## Version Progression
 
-Each time step is classified into one of four states:
+### V1.0 — Core Deterministic Classification Prototype
 
-| State | Meaning |
-|---|---|
-| Stable | All signals remain within acceptable bounds |
-| Drift Emerging | Early degradation is detected |
-| Degraded | Sustained or multi-domain degradation is present |
-| Unreliable | Output should no longer be treated as trustworthy |
+The initial MIS release established the core classification flow:
 
-All classifications are:
+- synthetic telemetry-like scenario generation
+- navigation, sensor, and communication integrity scoring
+- bounded state classification
+- causal explanations
+- event-based transition logging
+- CLI execution
+- Streamlit interface
 
-- deterministic
-- explainable
-- based on explicit threshold logic
-- limited to finite bounded states
+V1.0 demonstrated the core governance concept:
 
-No statistical model, machine learning layer, or predictive engine is used.
+> A system output is only useful if the underlying signal can still be trusted.
 
 ---
 
-## Integrity Scores
+### V1.1 — Scenario Reporting and Review Artifacts
 
-MIS V1 computes three bounded integrity scores from 0 to 100:
+MIS V1.1 added scenario-specific reporting and review outputs.
 
-| Integrity Domain | Primary Signal Inputs |
-|---|---|
-| Navigation Integrity | GPS quality, IMU stability, wind load |
-| Sensor Integrity | Sensor clarity, wind load, IMU stability |
-| Communication Integrity | Comms latency, packet loss |
-
-Scores are generated through transparent, rule-based logic.
-
-The purpose is not to claim real-world sensor accuracy. The purpose is to demonstrate how signal degradation can be represented clearly before downstream decisions are made.
-
----
-
-## Included Scenarios
-
-MIS V1 includes five simulated scenarios:
-
-1. **nominal_mission**  
-   Mostly stable signals throughout the scenario.
-
-2. **gradual_gps_degradation**  
-   GPS quality degrades gradually over time.
-
-3. **sensor_disruption**  
-   Sensor clarity drops suddenly with related instability.
-
-4. **comms_instability**  
-   Packet loss and latency worsen intermittently.
-
-5. **compound_degradation**  
-   Multiple signal domains degrade together, potentially causing transition toward Unreliable.
-
-All scenarios use simulated data only.
-
----
-
-## PDF Scenario Reports
-
-MIS V1 includes downloadable scenario-specific PDF reports.
-
-Each report includes:
+V1.1 introduced downloadable PDF reports containing:
 
 - scenario name
 - generated timestamp
@@ -133,43 +79,61 @@ Each report includes:
 - limitations and non-goals
 - copyright / ownership footer
 
-The report is designed for demonstration, portfolio review, and discussion purposes.
-
-It does not certify operational readiness, safety performance, regulatory compliance, or real-world mission suitability.
+This moved MIS from a working prototype toward a more reviewable portfolio artifact.
 
 ---
 
-## Accessibility Considerations
+### V1.2 — Verification and Reproducibility Hardening
 
-Charts are designed to avoid relying on color alone.
+MIS V1.2 focused on verification, reproducibility, and reviewer confidence.
 
-The reporting layer uses accessibility-aware presentation principles, including:
+V1.2 added or strengthened:
 
-- distinct line styles where practical
-- markers where practical
-- clear legends
-- axis labels
-- chart titles
-- readable font sizing
-- numeric values in summaries and tables
+- scoring validation
+- classification validation
+- scenario execution tests
+- scenario regression tests
+- event log validation
+- explanation validation
+- export validation
+- CLI smoke testing
+- Streamlit preservation
+- README / LIMITATIONS / CHANGELOG documentation
 
-This supports the broader design principle that interpretability should not depend on visual assumptions alone.
+V1.2 did not change the classification model.
+
+The purpose was to prove that the existing logic is deterministic, bounded, testable, and reproducible.
 
 ---
 
-## Example Output
+### V1.3 — Evidence Package Readiness and Validation
 
-STATE: Degraded
-NAVIGATION INTEGRITY: 68
-SENSOR INTEGRITY: 42
-COMMUNICATION INTEGRITY: 81
+MIS V1.3 converted standalone scenario outputs into validated evidence packages.
 
-CAUSE: Sensor clarity drop combined with wind-induced instability.
+Each V1.3 evidence package includes:
 
-## Demonstration Reports
+```text
+MANIFEST.json
+VALIDATION_REPORT.md
+OPERATOR_RECEIPT.md
 
-Sample PDF reports generated from the MIS V1 Streamlit application are available in the [`/reports`](reports/) folder.
+run_001/
+  canonical_output.json
+  scenario_summary.md
+  event_log.csv
+  data_excerpt.csv
+  scenario_report.pdf
 
-These reports demonstrate how MIS V1 packages simulated scenario outputs into reviewable artifacts, including integrity scores, raw signal charts, event logs, causal explanations, and data excerpts.
+charts/
+  integrity_scores.png
+  raw_signals.png
 
-Reports are generated from simulated data for demonstration and portfolio purposes only.
+provenance/
+  artifact_checksums.txt
+  run_configuration.json
+  limitations_snapshot.md
+  evidence_note.md
+
+READY_FOR_REVIEW/
+  README.md
+  reviewer_quickstart.md
