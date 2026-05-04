@@ -1,0 +1,71 @@
+{
+  "mis_version": "V1.3",
+  "release_label": "MIS V1.3 \u2014 Evidence Package Readiness & Validation",
+  "classification_engine_version": "V1.2",
+  "classification_engine_label": "MIS V1.2 \u2014 DevOps, Verification & Reproducibility Hardening",
+  "analytical_logic_changed": false,
+  "classification_model_changed": false,
+  "run_id": "run_001",
+  "generated_at": "2026-05-04T14:19:27Z",
+  "scenario_id": "compound_degradation",
+  "random_seed": 42,
+  "scenario_steps": 60,
+  "supported_scenarios": [
+    "nominal_mission",
+    "gradual_gps_degradation",
+    "sensor_disruption",
+    "comms_instability",
+    "compound_degradation"
+  ],
+  "valid_states": [
+    "Degraded",
+    "Drift Emerging",
+    "Stable",
+    "Unreliable"
+  ],
+  "score_bounds": {
+    "minimum": 0,
+    "maximum": 100,
+    "note": "All integrity scores are bounded to [0, 100]."
+  },
+  "classification_thresholds": {
+    "stable": 75,
+    "drift_low": 60,
+    "degraded_low": 40,
+    "unreliable": 40
+  },
+  "scoring_weights": {
+    "navigation": {
+      "gps_quality": 0.5,
+      "imu_stability": 0.3,
+      "wind_load": 0.2
+    },
+    "sensor": {
+      "sensor_clarity": 0.6,
+      "wind_load": 0.25,
+      "imu_stability": 0.15
+    },
+    "communication": {
+      "comms_latency": 0.45,
+      "packet_loss": 0.55
+    }
+  },
+  "event_detection": {
+    "integrity_drop_threshold": 10,
+    "rolling_window": 5,
+    "sustained_fraction": 0.6,
+    "threshold_bands": [
+      75,
+      60,
+      40
+    ]
+  },
+  "non_change_flags": {
+    "analytical_logic_changed": false,
+    "classification_model_changed": false,
+    "real_telemetry_used": false,
+    "prediction_used": false,
+    "operational_recommendations_present": false,
+    "uav_control_functionality_present": false
+  }
+}

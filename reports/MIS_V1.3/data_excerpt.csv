@@ -1,0 +1,16 @@
+Time,gps_quality,imu_stability,wind_load,sensor_clarity,comms_latency,packet_loss,battery_stability,nav_integrity,sensor_integrity,comms_integrity,state,explanation
+00:00:45,38.2,47.9,74.3,33.7,65.0,48.9,53.3,38.6,33.8,43.9,Unreliable,Unreliable: Navigation and Sensor integrity below minimum trust threshold (< 40).
+00:00:46,44.5,53.8,62.4,45.6,60.4,43.4,56.6,45.9,44.8,49.0,Unreliable,Unreliable: compound multi-domain degradation sustained across recent window.
+00:00:47,40.6,49.3,65.7,35.2,64.7,52.4,55.6,42.0,37.1,42.1,Unreliable,Unreliable: Sensor integrity below minimum trust threshold (< 40).
+00:00:48,43.2,48.9,65.2,36.5,60.4,55.2,55.1,43.2,37.9,42.5,Unreliable,Unreliable: Sensor integrity below minimum trust threshold (< 40).
+00:00:49,31.5,45.4,72.5,33.6,63.8,51.1,50.0,34.9,33.8,43.2,Unreliable,Unreliable: Navigation and Sensor integrity below minimum trust threshold (< 40).
+00:00:50,36.6,47.1,74.8,30.7,69.0,54.1,54.5,37.5,31.8,39.2,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:51,34.3,44.7,69.9,37.9,59.9,46.2,53.6,36.6,37.0,47.6,Unreliable,Unreliable: Navigation and Sensor integrity below minimum trust threshold (< 40).
+00:00:52,32.8,42.8,79.8,32.5,65.6,60.8,52.0,33.3,31.0,37.0,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:53,28.0,42.6,79.3,39.5,66.4,64.5,46.6,30.9,35.3,34.6,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:54,32.1,47.2,76.1,26.8,58.0,63.1,45.5,35.0,29.1,39.2,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:55,31.0,46.2,74.1,26.1,75.3,55.8,46.5,34.5,29.1,35.4,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:56,27.5,39.8,62.9,33.6,82.9,59.9,46.8,33.1,35.4,29.8,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:57,27.2,39.2,74.9,20.9,86.8,49.5,43.9,30.4,24.7,33.7,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:58,31.3,41.2,84.2,33.3,80.3,62.5,48.3,31.2,30.1,29.5,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
+00:00:59,27.5,36.8,65.2,31.6,76.2,74.2,43.9,31.8,33.2,24.9,Unreliable,Unreliable: Navigation and Sensor and Communication integrity below minimum trust threshold (< 40).
