@@ -1,0 +1,113 @@
+{
+  "package_version": "V1.3",
+  "package_format": "MIS-EVIDENCE-1.0",
+  "mis_version": "V1.3",
+  "mis_release": "MIS V1.3 — Evidence Package Readiness & Validation",
+  "scenario_id": "compound_degradation",
+  "run_id": "run_001",
+  "generated_timestamp": "2026-05-04T14:19:27Z",
+  "package_root": "MIS_EVIDENCE_compound_degradation_20260504T141927Z",
+  "evidence_zip_path": "MIS-V1.3-compound_degradation-evidence.zip",
+  "demo_notice": "Demonstration report generated from simulated data",
+  "validation_status": "PASS",
+  "download_ready": true,
+  "required_files_present": true,
+  "missing_files": [],
+  "canonical_output_present": true,
+  "canonical_output_valid": true,
+  "scenario_report_pdf_present": true,
+  "event_log_present": true,
+  "data_excerpt_present": true,
+  "integrity_chart_present": true,
+  "raw_signal_chart_present": true,
+  "checksum_status": "OK",
+  "checksums_match_files": true,
+  "limitations_present": true,
+  "ready_for_review_present": true,
+  "manual_shell_required": false,
+  "streamlit_required": false,
+  "analytical_logic_changed": false,
+  "classification_model_changed": false,
+  "real_telemetry_used": false,
+  "prediction_used": false,
+  "operational_recommendations_present": false,
+  "uav_control_functionality_present": false,
+  "file_count": 15,
+  "files": [
+    {
+      "path": "OPERATOR_RECEIPT.md",
+      "size_bytes": 1715,
+      "sha256": "eb24dff13abb9935ff0e3806d17bcb73084387159231900fe1464754b3bc8ed2"
+    },
+    {
+      "path": "READY_FOR_REVIEW/README.md",
+      "size_bytes": 2004,
+      "sha256": "948247102fdbf963e890d96ba8d222041a49b8f1fa833987446900672cfbc9fd"
+    },
+    {
+      "path": "READY_FOR_REVIEW/reviewer_quickstart.md",
+      "size_bytes": 2875,
+      "sha256": "37583dc65baa1c8cf354fa3d41a578a244608332e4298ff05f554a05d4d71e46"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "size_bytes": 2047,
+      "sha256": "89602870f0114c8710827b1680fed848b75b05089e32bb32a7d44d7f6c636899"
+    },
+    {
+      "path": "charts/integrity_scores.png",
+      "size_bytes": 60380,
+      "sha256": "cb3e7729a10d2cac4f4d9a22b5b833891e913f5891534e3b7f812af455411f01"
+    },
+    {
+      "path": "charts/raw_signals.png",
+      "size_bytes": 120827,
+      "sha256": "fff517a65bb0366256591ca874759f1dee9b8b86e892c874ad14e73c5398b849"
+    },
+    {
+      "path": "provenance/artifact_checksums.txt",
+      "size_bytes": 1453,
+      "sha256": "26867c40b4a170f9f8c9461a7196ab93285012f3c5e44aaba0b6316c8b79dcd3"
+    },
+    {
+      "path": "provenance/evidence_note.md",
+      "size_bytes": 2442,
+      "sha256": "46075165618e133252c77ada790accfd415a8069824059145d62e40d4d0d604a"
+    },
+    {
+      "path": "provenance/limitations_snapshot.md",
+      "size_bytes": 1448,
+      "sha256": "d271b108f495d8b719a5f101c895af55e9e799b5a53a94439152b6bf23d12299"
+    },
+    {
+      "path": "provenance/run_configuration.json",
+      "size_bytes": 1753,
+      "sha256": "e22bac65166dc0b253745c8b6411f7d3c4c59acde38a9ba5f4a07bcf12edf968"
+    },
+    {
+      "path": "run_001/canonical_output.json",
+      "size_bytes": 36887,
+      "sha256": "443e5dd20f5f5605336c98e523c55de4f4dc4f302d74dbacb216aeb87ad60d97"
+    },
+    {
+      "path": "run_001/data_excerpt.csv",
+      "size_bytes": 2573,
+      "sha256": "816aa8ee9411ffc9ed58c85817ff879bc98a51e17a138578be0b48cfc24caf87"
+    },
+    {
+      "path": "run_001/event_log.csv",
+      "size_bytes": 3451,
+      "sha256": "6d4b85ccc6508319dfdaf125f9f6dd9e7cbc56f490d19fdf09a07739ae1705d2"
+    },
+    {
+      "path": "run_001/scenario_report.pdf",
+      "size_bytes": 161671,
+      "sha256": "c73f708ed7a1c7cedec033772c9cd2ab787b4ff4c3a5b76692f43c1c678c6a26"
+    },
+    {
+      "path": "run_001/scenario_summary.md",
+      "size_bytes": 1623,
+      "sha256": "45bfcebbfc145a7ca871b3b5fe14486f787deb325b6bbf7e2916ce65cea44139"
+    }
+  ]
+}
